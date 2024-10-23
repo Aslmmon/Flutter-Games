@@ -1,0 +1,14 @@
+{ "columns":7,
+ "image":"Decorations.png",
+ "imageheight":192,
+ "imagewidth":224,
+ "margin":0,
+ "name":"Decorations",
+ "spacing":0,
+ "tilecount":42,
+ "tiledversion":"1.11.0",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}
