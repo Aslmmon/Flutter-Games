@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         cameraConfig: CameraConfig(
             zoom: getZoomFromMaxVisibleTile(context, tileSize, 15)),
         player: King(position: Vector2(3 * tileSize, 12 * tileSize)),
-        showCollisionArea: true,
+        showCollisionArea: false,
         playerControllers: [
           Joystick(
             actions: [
