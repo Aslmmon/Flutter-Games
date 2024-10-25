@@ -3,17 +3,40 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "map.tmj",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
+        "Decorations.tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Terrain.tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "map.tmj": {
+            "scale": 1.31,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 579.3893129770993,
+                "y": 299.99999999999994
+            }
+        }
     },
     "last.imagePath": "/Users/macbookpro/Flutter/kings_pigs/assets/images",
     "map.lastUsedFormat": "json",
     "openFiles": [
+        "map.tmj",
+        "Terrain.tsj",
+        "Decorations.tsj"
     ],
     "project": "untitled.tiled-project",
     "recentFiles": [
+        "Decorations.tsj",
+        "Terrain.tsj",
+        "map.tmj"
     ],
     "tileset.lastUsedFormat": "json"
 }
