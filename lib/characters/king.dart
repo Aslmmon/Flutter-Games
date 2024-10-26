@@ -1,17 +1,17 @@
 import 'package:bonfire/bonfire.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:kings_pigs/utils/animation/kingsprites.dart';
 
 import '../utils/animation/dustParticles.dart';
 
 var kingSize = Vector2(78, 58);
 
-class King extends PlatformPlayer with HandleForces {
+class King extends PlatformPlayer with HandleForces,UseLifeBar {
   bool moveEnabled = true;
 
   King({required super.position})
       : super(
           size: kingSize,
-
           animation: PlatformAnimations(
               idleRight: KingsSprite.idle,
               runRight: KingsSprite.run,
@@ -19,14 +19,20 @@ class King extends PlatformPlayer with HandleForces {
               jump: PlatformJumpAnimations(
                 jumpUpRight: KingsSprite.jump,
                 jumpDownRight: KingsSprite.fall,
-              ),others: {
-            'ground': KingsSprite.ground,
-            'attack': KingsSprite.attack,
-            'hit': KingsSprite.hit,
-            'dead': KingsSprite.dead,
+              ),
+              others: {
+                'ground': KingsSprite.ground,
+                'attack': KingsSprite.attack,
+                'hit': KingsSprite.hit,
+                'dead': KingsSprite.dead,
+              })){
+    setupLifeBar(
+      borderRadius: BorderRadius.circular(50),
+      barLifeDrawPosition: BarLifeDrawPosition.top,
+      offset: Vector2(0, 5),
+    );
+  }
 
-          }),
-        );
 
   @override
   void onJoystickAction(JoystickActionEvent event) {
@@ -36,9 +42,11 @@ class King extends PlatformPlayer with HandleForces {
     if (event.event == ActionEvent.DOWN && event.id == 1) {
       jump(jumpSpeed: 200);
     }
+    /**
+     * on red Icon clicked execute Attack
+     */
     if (event.event == ActionEvent.DOWN && event.id == 2) {
       _execAttack();
-
     }
     super.onJoystickAction(event);
   }
@@ -52,11 +60,11 @@ class King extends PlatformPlayer with HandleForces {
 
   @override
   void onMove(
-      double speed,
-      Vector2 displacement,
-      Direction direction,
-      double angle,
-      ) {
+    double speed,
+    Vector2 displacement,
+    Direction direction,
+    double angle,
+  ) {
     if (direction.isHorizontal) {
       if (checkInterval('smoke_animation', 300, dtUpdate)) {
         if (direction.isRightSide) {
@@ -69,7 +77,6 @@ class King extends PlatformPlayer with HandleForces {
     super.onMove(speed, displacement, direction, angle);
   }
 
-
   @override
   void onJump(JumpingStateEnum state) {
     if (state == JumpingStateEnum.idle) {
@@ -78,7 +85,6 @@ class King extends PlatformPlayer with HandleForces {
         runToTheEnd: true,
       );
 
-      //showSmoke(SmokeDirection.center);
     }
     super.onJump(state);
   }
@@ -94,7 +100,6 @@ class King extends PlatformPlayer with HandleForces {
       ),
     );
   }
-
 
   @override
   void onReceiveDamage(AttackOriginEnum attacker, double damage, identify) {
@@ -118,6 +123,7 @@ class King extends PlatformPlayer with HandleForces {
     );
     super.onDie();
   }
+
   void _execAttack() {
     animation?.playOnceOther(
       'attack',
