@@ -3,21 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:kings_pigs/main.dart';
 import 'package:kings_pigs/utils/animation/pigsprites.dart';
 
-class Pig extends PlatformEnemy with UseLifeBar {
+class Pig extends PlatformEnemy with UseLifeBar ,HandleForces{
+
   Pig({required super.position, required super.size})
       : super(
           speed: 40,
           animation: pigSprites.animations,
         ) {
+    mass = 2;
     setupLifeBar(
       borderRadius: BorderRadius.circular(50),
       barLifeDrawPosition: BarLifeDrawPosition.bottom,
       offset: Vector2(0, 2),
     );
+
   }
+
 
   @override
   Future<void> onLoad() {
+    addForce(GravityForce2D(value: Vector2(0, 1000)));
+
     add(RectangleHitbox(size: Vector2.all(15), position: Vector2(7, 13)));
     return super.onLoad();
   }
@@ -25,7 +31,7 @@ class Pig extends PlatformEnemy with UseLifeBar {
   @override
   void update(double dt) {
     seeAndMoveToPlayer(
-        radiusVision: KingPigGame.tileSize * 2,
+        radiusVision: KingPigGame.tileSize * 50,
         movementAxis: MovementAxis.horizontal,
       closePlayer: _closePlayer,
       notObserved: () {

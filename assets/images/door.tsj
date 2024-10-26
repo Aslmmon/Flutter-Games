@@ -1,0 +1,14 @@
+{ "columns":1,
+ "image":"..\/..\/..\/kingsAndPigs\/Kings and Pigs\/Sprites\/11-Door\/Idle.png",
+ "imageheight":56,
+ "imagewidth":46,
+ "margin":0,
+ "name":"door",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.11.0",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}

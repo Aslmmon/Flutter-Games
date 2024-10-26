@@ -16,6 +16,10 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "door.tsj": {
+            "scaleInDock": 0.7463,
+            "scaleInEditor": 1
+        },
         "map.tmj": {
             "scale": 1.31,
             "selectedLayer": 1,
@@ -25,7 +29,8 @@
             }
         }
     },
-    "last.imagePath": "/Users/macbookpro/Flutter/kings_pigs/assets/images",
+    "last.externalTilesetPath": "/Users/macbookpro/Flutter/kingsAndPigs/Kings and Pigs/Sprites/11-Door",
+    "last.imagePath": "/Users/macbookpro/Flutter/kingsAndPigs/Kings and Pigs/Sprites/11-Door",
     "map.lastUsedFormat": "json",
     "openFiles": [
         "map.tmj",
@@ -34,9 +39,11 @@
     ],
     "project": "untitled.tiled-project",
     "recentFiles": [
+        "door.tsj",
         "Decorations.tsj",
         "Terrain.tsj",
         "map.tmj"
     ],
+    "tileset.lastUsedFilter": "All Files (*)",
     "tileset.lastUsedFormat": "json"
 }
