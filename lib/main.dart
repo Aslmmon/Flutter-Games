@@ -27,9 +27,10 @@ class KingPigGame extends StatelessWidget {
             }),
         backgroundColor: const Color(0xFF3F3851),
         cameraConfig: CameraConfig(
+          moveOnlyMapArea: true,
             zoom: getZoomFromMaxVisibleTile(context, tileSize, 15)),
         player: King(position: Vector2(3 * tileSize, 12 * tileSize)),
-        showCollisionArea: true,
+        showCollisionArea: false,
         playerControllers: [
           Joystick(
             actions: [
@@ -43,7 +44,7 @@ class KingPigGame extends StatelessWidget {
                 color: Colors.red,
               ),
             ],
-            directional: JoystickDirectional(margin: EdgeInsets.all(25)),
+            directional: JoystickDirectional(margin: const EdgeInsets.all(25)),
           )
         ]);
   }
